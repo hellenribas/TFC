@@ -1,50 +1,52 @@
-import * as sinon from 'sinon';
-import * as chai from 'chai';
-// @ts-ignore
-import chaiHttp = require('chai-http');
+// import * as sinon from 'sinon';
+// import * as chai from 'chai';
+// // @ts-ignore
+// import chaiHttp = require('chai-http');
 
-import { app } from '../app';
-import Login from '../database/models/Login';
-import ILogin from '../interface/ILogin';
+// import { app } from '../app';
+// import Login from '../database/models/users';
+// import IUser from '../interface/IUser';
 
-import { Response } from 'superagent';
+// import { Response } from 'superagent';
 
-chai.use(chaiHttp);
+// chai.use(chaiHttp);
 
-const { expect } = chai;
+// const { expect } = chai;
 
-const loginMock: ILogin = {
-  email: 'test@test.com',
-  senha: '123456',
-}
+// const loginMock: IUser = {
+//   username: 'user',
+//   role: 'role',
+//   email: 'test@test.com',
+//   password: '123456',
+// }
 
-describe('/login', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
+// describe('/login', () => {
+//   /**
+//    * Exemplo do uso de stubs com tipos
+//    */
 
-  let chaiHttpResponse: Response;
+//   let chaiHttpResponse: Response;
 
-  before(async () => {
-    sinon
-      .stub(Login, "findOne")
-      .resolves(loginMock as ILogin);
-  });
+//   before(async () => {
+//     sinon
+//       .stub(Login, "findOne")
+//       .resolves(loginMock as IUser);
+//   });
 
-  after(()=>{
-    sinon.restore();
-  })
+//   after(()=>{
+//     sinon.restore();
+//   })
 
-  it('should return status 200', async () => {
-    chaiHttpResponse = await chai
-       .request(app).post('/login');
+//   it('should return status 200', async () => {
+//     chaiHttpResponse = await chai
+//        .request(app).post('/login');
 
-    expect(chaiHttpResponse.status).to.equal(200);
-  });
+//     expect(chaiHttpResponse.status).to.equal(200);
+//   });
 
-  it('should return token', async () => {
-    chaiHttpResponse = await chai
-    .request(app).post('/login');
-    expect(chaiHttpResponse.body).to.have.property('token');
-  });
-});
+//   it('should return token', async () => {
+//     chaiHttpResponse = await chai
+//     .request(app).post('/login');
+//     expect(chaiHttpResponse.body).to.have.property('token');
+//   });
+// });
