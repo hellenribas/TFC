@@ -13,5 +13,6 @@ export default class Validation {
 
   public static user(user: object | null) {
     if (!user) throw new VerifyError(401, 'Incorrect email or password');
+    return true;
   }
 }
