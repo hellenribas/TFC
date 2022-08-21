@@ -28,16 +28,13 @@ const teamMock: ITeam[] =  [{
 
 
 describe('/teams', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
 
   let chaiHttpResponse: Response;
 
   before(async () => {
     sinon
       .stub(Team, "findAll")
-      .resolves(teamMock as Team);
+      .resolves(teamMock as Team[]);
   });
 
   after(()=>{
@@ -51,7 +48,7 @@ describe('/teams', () => {
     expect(chaiHttpResponse.status).to.equal(200);
   });
 
-  it('should return token', async () => {
+  it('should return teams', async () => {
     chaiHttpResponse = await chai
     .request(app).post('/teams');
     expect(chaiHttpResponse.body).to.equal(teamMock);
