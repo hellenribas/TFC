@@ -12,4 +12,10 @@ export default class LoginController {
     const token = await this._loginService.login(req.body as ILogin);
     res.status(200).json(token);
   }
+
+  public async user(req: Request, res: Response): Promise<void> {
+    const { authorization } = req.headers;
+    const response = await this._loginService.user(authorization as string);
+    res.status(200).json({ role: response });
+  }
 }
