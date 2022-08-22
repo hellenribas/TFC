@@ -6,6 +6,7 @@ import chaiHttp = require('chai-http');
 import { app } from '../app';
 import Login from '../database/models/users';
 import IUser from '../interface/IUser';
+import ILogin from '../interface/ILogin';
 
 import { Response } from 'superagent';
 import User from '../database/models/users';
@@ -21,6 +22,11 @@ const loginMock: IUser = {
   password: '123456',
 }
 
+const userMock: ILogin = {
+  email: "admin@admin.com",
+  password: "admin"
+}
+
 describe('/login', () => {
   /**
    * Exemplo do uso de stubs com tipos
@@ -31,7 +37,7 @@ describe('/login', () => {
   before(async () => {
     sinon
       .stub(Login, "findOne")
-      .resolves(loginMock as User);
+      .resolves(loginMock as User)
   });
 
   after(()=>{
@@ -40,7 +46,7 @@ describe('/login', () => {
 
   it('should return status 200', async () => {
     chaiHttpResponse = await chai
-       .request(app).post('/login');
+       .request(app).post('/login').send(userMock);;
 
     expect(chaiHttpResponse.status).to.equal(200);
   });

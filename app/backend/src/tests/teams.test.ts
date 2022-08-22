@@ -43,7 +43,7 @@ describe('/teams', () => {
 
   it('should return status 200', async () => {
     chaiHttpResponse = await chai
-       .request(app).get('/teams');
+       .request(app).get('/teams').send();
 
     expect(chaiHttpResponse.status).to.equal(200);
   });
