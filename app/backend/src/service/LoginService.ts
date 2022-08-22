@@ -9,11 +9,13 @@ export default class LoginService implements Login {
   _user: ILogin;
   _token: string;
 
+  constructor(private model = User) {}
+
   public async login(user: ILogin): Promise<IToken> {
     this._user = user;
     Validation.email(user.email);
     Validation.password(user.password);
-    const response = await User.findOne({ where: { email: user.email } });
+    const response = await this.model.findOne({ where: { email: user.email } });
     Validation.user(response);
     const token = JWT.sign(user.email, user.password);
     return { token } as IToken;
@@ -23,7 +25,7 @@ export default class LoginService implements Login {
     this._token = token;
     const userValidation = JWT.verify(token);
     const resValid = userValidation as ILogin;
-    const findUser = await User.findOne({ where: { email: resValid.email } });
+    const findUser = await this.model.findOne({ where: { email: resValid.email } });
     const response = findUser as User;
     return response.role;
   }

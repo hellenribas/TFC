@@ -24,7 +24,7 @@ const loginMock: IUser = {
 
 const userMock: ILogin = {
   email: "admin@admin.com",
-  password: "admin"
+  password: "secret_admin"
 }
 
 describe('/login', () => {
