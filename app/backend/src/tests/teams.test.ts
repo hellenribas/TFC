@@ -15,20 +15,24 @@ const { expect } = chai;
 
 const teamMock: ITeam[] =  [{
   "id": 1,
-  "teamName": "Avaí/Kindermann"
+  "teamName": "team1"
 },
 {
   "id": 2,
-  "teamName": "Bahia"
+  "teamName": "team2"
 },
 {
   "id": 3,
-  "teamName": "Botafogo"
+  "teamName": "team3"
 },]
+
+const teamIdMock: ITeam = {
+  "id": 1,
+  "teamName": "team1"
+}
 
 
 describe('/teams', () => {
-
   let chaiHttpResponse: Response;
 
   before(async () => {
@@ -54,4 +58,32 @@ describe('/teams', () => {
     expect(chaiHttpResponse.body).to.equal(teamMock);
   });
 });
+
+describe('/teams/:id', () => {
+  let chaiHttpResponse: Response;
+
+  before(async () => {
+    sinon
+      .stub(Team, "findOne")
+      .resolves(teamIdMock as Team);
+  });
+
+  after(()=>{
+    sinon.restore();
+  })
+
+  it('should return status 200', async () => {
+    chaiHttpResponse = await chai
+       .request(app).get('/teams').send();
+
+    expect(chaiHttpResponse.status).to.equal(200);
+  });
+
+  it('should return teams', async () => {
+    chaiHttpResponse = await chai
+    .request(app).post('/teams');
+    expect(chaiHttpResponse.body).to.equal(teamIdMock);
+  });
+});
+
 
