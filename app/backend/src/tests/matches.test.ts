@@ -5,9 +5,8 @@ import chaiHttp = require('chai-http');
 
 import { app } from '../app';
 import Match from '../database/models/matches';
-
 import { Response } from 'superagent';
-import ITeam from '../interface/ITeam';
+import IMatch from '../interface/IMatch';
 
 chai.use(chaiHttp);
 
