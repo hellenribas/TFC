@@ -28,8 +28,8 @@ export default class Validation {
   }
 
   public static matchEqual(team:IMatch[], home:number, away:number) {
-    const verif = team.some((e) => e.homeTeam !== home || e.awayTeam !== away);
-    if (verif) throw new VerifyError(404, 'There is no team with such id!');
+    const verif = team.some((e) => e.homeTeam === home || e.awayTeam === away);
+    if (!verif) throw new VerifyError(404, 'There is no team with such id!');
     return true;
   }
 }
