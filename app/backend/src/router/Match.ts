@@ -10,7 +10,7 @@ const MatchController = new MatchsController(MatchService);
 
 router.get('/matches', (req: Request, res: Response) => MatchController.matches(req, res));
 router.post('/matches', (req: Request, res: Response) => MatchController.matchInProgress(req, res));
-router.put(
+router.patch(
   '/matches/:id/finish',
   (req: Request, res: Response) =>
     MatchController.matchInProgressId(req, res),
