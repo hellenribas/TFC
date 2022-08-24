@@ -20,12 +20,12 @@ const matchMock: IMatch[] =  [
     "awayTeam": 8,
     "awayTeamGoals": 1,
     "inProgress": 0,
-    "teamHome": {
-      "teamName": "Team2"
-    },
-    "teamAway": {
-      "teamName": "Team1"
-    }
+    // "teamHome": {
+    //   "teamName": "Team2"
+    // },
+    // "teamAway": {
+    //   "teamName": "Team1"
+    // }
   },
   {
     "id": 2,
@@ -34,12 +34,12 @@ const matchMock: IMatch[] =  [
     "awayTeam": 9,
     "awayTeamGoals": 0,
     "inProgress": 1,
-    "teamHome": {
-      "teamName": "Team3"
-    },
-    "teamAway": {
-      "teamName": "Team4"
-    }
+    // "teamHome": {
+    //   "teamName": "Team3"
+    // },
+    // "teamAway": {
+    //   "teamName": "Team4"
+    // }
   }
 ];
 
@@ -51,12 +51,12 @@ const matchMockInProgress: IMatch[] =  [
     "awayTeam": 8,
     "awayTeamGoals": 1,
     "inProgress": 1,
-    "teamHome": {
-      "teamName": "Team2"
-    },
-    "teamAway": {
-      "teamName": "Team1"
-    }
+    // "teamHome": {
+    //   "teamName": "Team2"
+    // },
+    // "teamAway": {
+    //   "teamName": "Team1"
+    // }
   },
   {
     "id": 2,
@@ -65,12 +65,12 @@ const matchMockInProgress: IMatch[] =  [
     "awayTeam": 9,
     "awayTeamGoals": 0,
     "inProgress": 1,
-    "teamHome": {
-      "teamName": "Team3"
-    },
-    "teamAway": {
-      "teamName": "Team4"
-    }
+    // "teamHome": {
+    //   "teamName": "Team3"
+    // },
+    // "teamAway": {
+    //   "teamName": "Team4"
+    // }
   }
 ];
 
@@ -82,12 +82,12 @@ const matchMockNoInProgress: IMatch[] =  [
     "awayTeam": 8,
     "awayTeamGoals": 1,
     "inProgress": 0,
-    "teamHome": {
-      "teamName": "Team2"
-    },
-    "teamAway": {
-      "teamName": "Team1"
-    }
+    // "teamHome": {
+    //   "teamName": "Team2"
+    // },
+    // "teamAway": {
+    //   "teamName": "Team1"
+    // }
   },
   {
     "id": 2,
@@ -96,12 +96,12 @@ const matchMockNoInProgress: IMatch[] =  [
     "awayTeam": 9,
     "awayTeamGoals": 0,
     "inProgress": 0,
-    "teamHome": {
-      "teamName": "Team3"
-    },
-    "teamAway": {
-      "teamName": "Team4"
-    }
+    // "teamHome": {
+    //   "teamName": "Team3"
+    // },
+    // "teamAway": {
+    //   "teamName": "Team4"
+    // }
   }
 ];
 
