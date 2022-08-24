@@ -16,4 +16,10 @@ router.patch(
     MatchController.matchInProgressId(req, res),
 );
 
+router.patch(
+  '/matches/:id',
+  (req: Request, res: Response) =>
+    MatchController.updatedInProgress(req, res),
+);
+
 export default router;

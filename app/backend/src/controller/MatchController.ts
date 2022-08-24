@@ -25,4 +25,11 @@ export default class MatchController {
     const response = await this._matchService.matchInProgressId(id);
     res.status(200).json(response);
   }
+
+  public async updatedInProgress(req:Request, res:Response):Promise<void> {
+    const { id } = req.params;
+    const match = req.body;
+    const response = await this._matchService.updatedInProgress(Number(id), match);
+    res.status(200).json(response);
+  }
 }

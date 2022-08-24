@@ -1,3 +1,4 @@
+import Goals from '../interface/Goals';
 import Message from '../interface/Message';
 import IMatch from '../interface/IMatch';
 import Match from '../database/models/matches';
@@ -50,5 +51,21 @@ export default class MatchService implements MatchInterface {
       },
     );
     return { message: 'Finished' };
+  }
+
+  public async updatedInProgress(id:number, { homeTeamGoals, awayTeamGoals }:Goals)
+    :Promise<Message> {
+    await this.model.update(
+      {
+        homeTeamGoals,
+        awayTeamGoals,
+      },
+      {
+        where: {
+          id,
+        },
+      },
+    );
+    return { message: 'Updated' };
   }
 }

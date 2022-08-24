@@ -1,8 +1,8 @@
-export default interface IMatch {
+import Goals from './Goals';
+
+export default interface IMatch extends Goals {
   id: number,
   homeTeam: number,
-  homeTeamGoals: number,
   awayTeam: number,
-  awayTeamGoals: number,
   inProgress: number,
 }
