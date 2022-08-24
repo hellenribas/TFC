@@ -9,7 +9,6 @@ const MatchService = new MatchsService();
 const MatchController = new MatchsController(MatchService);
 
 router.get('/matches', (req: Request, res: Response) => MatchController.matches(req, res));
-
-
+router.post('/matches', (req: Request, res: Response) => MatchController.matchInProgress(req, res));
 
 export default router;

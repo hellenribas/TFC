@@ -4,9 +4,8 @@ import VerifyError from '../service/VerifyError';
 export default class ErrorMiddleware {
   public static errors(error: Error, _req: Request, res: Response, next: NextFunction) {
     const { status, message } = error as VerifyError;
-    console.log(error);
 
-    res.status(status).json({ message });
+    res.status(status || 500).json({ message });
     next();
   }
 }

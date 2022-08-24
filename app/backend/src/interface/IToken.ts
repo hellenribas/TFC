@@ -1,3 +1,3 @@
 export default interface IToken {
-  token:string | null,
+  token:string | undefined,
 }
