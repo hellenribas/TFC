@@ -3,8 +3,8 @@ import IMatch from '../interface/IMatch';
 import Match from '../database/models/matches';
 import MatchInterface from '../interface/Match';
 import Team from '../database/models/teams';
-import JWT from '../helpers/JWT';
 import Validation from '../helpers/Validation';
+import JWT from '../helpers/JWT';
 
 export default class MatchService implements MatchInterface {
   constructor(private model = Match) {}
@@ -28,9 +28,9 @@ export default class MatchService implements MatchInterface {
 
   public async matchInProgress({
     homeTeam, awayTeam, homeTeamGoals, awayTeamGoals }:IMatch, token:string):Promise<IMatch> {
+    JWT.verify(token);
     const findTeam = await this.model.findAll();
     Validation.matchEqual(findTeam, homeTeam, awayTeam);
-    JWT.verify(token);
     const insertMatch = await this.model
       .create({ homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, inProgress: true });
 
