@@ -19,7 +19,7 @@ const matchMock: IMatch[] =  [
     "homeTeamGoals": 1,
     "awayTeam": 8,
     "awayTeamGoals": 1,
-    "inProgress": false,
+    "inProgress": 0,
     "teamHome": {
       "teamName": "Team2"
     },
@@ -33,7 +33,7 @@ const matchMock: IMatch[] =  [
     "homeTeamGoals": 2,
     "awayTeam": 9,
     "awayTeamGoals": 0,
-    "inProgress": true,
+    "inProgress": 1,
     "teamHome": {
       "teamName": "Team3"
     },
@@ -50,7 +50,7 @@ const matchMockInProgress: IMatch[] =  [
     "homeTeamGoals": 1,
     "awayTeam": 8,
     "awayTeamGoals": 1,
-    "inProgress": true,
+    "inProgress": 1,
     "teamHome": {
       "teamName": "Team2"
     },
@@ -64,7 +64,7 @@ const matchMockInProgress: IMatch[] =  [
     "homeTeamGoals": 2,
     "awayTeam": 9,
     "awayTeamGoals": 0,
-    "inProgress": true,
+    "inProgress": 1,
     "teamHome": {
       "teamName": "Team3"
     },
@@ -81,7 +81,7 @@ const matchMockNoInProgress: IMatch[] =  [
     "homeTeamGoals": 1,
     "awayTeam": 8,
     "awayTeamGoals": 1,
-    "inProgress": false,
+    "inProgress": 0,
     "teamHome": {
       "teamName": "Team2"
     },
@@ -95,7 +95,7 @@ const matchMockNoInProgress: IMatch[] =  [
     "homeTeamGoals": 2,
     "awayTeam": 9,
     "awayTeamGoals": 0,
-    "inProgress": false,
+    "inProgress": 0,
     "teamHome": {
       "teamName": "Team3"
     },

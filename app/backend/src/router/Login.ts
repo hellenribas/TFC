@@ -10,6 +10,6 @@ const loginController = new LoginController(loginService);
 
 router.post('/login', (req: Request, res: Response) => loginController.login(req, res));
 
-router.get('/login', (req: Request, res: Response) => loginController.user(req, res));
+router.get('/login/validate', (req: Request, res: Response) => loginController.user(req, res));
 
 export default router;

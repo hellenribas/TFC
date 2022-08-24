@@ -10,4 +10,6 @@ const MatchController = new MatchsController(MatchService);
 
 router.get('/matches', (req: Request, res: Response) => MatchController.matches(req, res));
 
+
+
 export default router;
