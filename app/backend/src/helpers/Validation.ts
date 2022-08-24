@@ -17,7 +17,7 @@ export default class Validation {
     return true;
   }
 
-  public static matches(homeTeam:number, awayTeam:number) {
+  public static matchEqual(homeTeam:number, awayTeam:number) {
     if (homeTeam === awayTeam) {
       throw new VerifyError(
         401,
@@ -27,9 +27,10 @@ export default class Validation {
     return true;
   }
 
-  public static matchEqual(team:IMatch[], home:number, away:number) {
-    const verif = team.some((e) => e.homeTeam === home || e.awayTeam === away);
-    if (!verif) throw new VerifyError(404, 'There is no team with such id!');
+  public static matchInvalid(team:IMatch[], home:number, away:number) {
+    const verif = team.some((e) => e.homeTeam === home);
+    const verifAway = team.some((e) => e.awayTeam === away);
+    if (!verif || !verifAway) throw new VerifyError(404, 'There is no team with such id!');
     return true;
   }
 }

@@ -29,8 +29,9 @@ export default class MatchService implements MatchInterface {
   public async matchInProgress({
     homeTeam, awayTeam, homeTeamGoals, awayTeamGoals }:IMatch, token:string):Promise<IMatch> {
     JWT.verify(token);
+    Validation.matchEqual(homeTeam, awayTeam);
     const findTeam = await this.model.findAll();
-    Validation.matchEqual(findTeam, homeTeam, awayTeam);
+    Validation.matchInvalid(findTeam, homeTeam, awayTeam);
     const insertMatch = await this.model
       .create({ homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, inProgress: true });
 
