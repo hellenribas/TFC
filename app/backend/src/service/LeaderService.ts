@@ -1,3 +1,4 @@
+import Board from '../interface/Board';
 import ILeader from '../interface/ILeader';
 import IMatch from '../interface/IMatch';
 import Team from '../database/models/teams';
@@ -66,17 +67,50 @@ export default class LeaderService {
       const obj = url.includes('home') ? LeaderService
         .pointsGoalsHome(homeOraway.id, response)
         : LeaderService.pointsGoalsAway(homeOraway.id, response);
+      const efficiency = obj.efficiency as number;
       return {
         name: homeOraway.teamName,
         ...obj,
-        efficiency: `${obj.efficiency.toFixed(2)}`,
+        efficiency: `${efficiency.toFixed(2)}`,
       };
     }));
   }
 
-  // public async totalPoint(): Promise<ILeader[]> {
-  //   const findMatches = await this.model.findAll({ where: {
-  //     inProgress: false,
-  //   } });
-  // }
+  private static objTotal({ team,
+    objHome, objAway, totalVictories, totalDraws, totalGames }:Board):ILeader {
+    return {
+      name: team.teamName,
+      totalPoints: objHome.totalPoints + objAway.totalPoints,
+      totalGames,
+      totalVictories,
+      totalDraws,
+      totalLosses: objHome.totalLosses + objAway.totalLosses,
+      goalsFavor: objHome.goalsFavor + objAway.goalsFavor,
+      goalsOwn: objHome.goalsOwn + objAway.goalsOwn,
+      goalsBalance:
+      (objHome.goalsFavor - objHome.goalsOwn) + (objAway.goalsFavor - objAway.goalsOwn),
+      efficiency: `${
+        ((((totalVictories * 3) + totalDraws) / (totalGames * 3)) * 100).toFixed(2)
+      }`,
+    };
+  }
+
+  public async totalPoint(): Promise<ILeader[]> {
+    const findMatches = await this.model.findAll({ where: { inProgress: false } });
+    const response = JSON.parse(JSON.stringify(findMatches));
+    const findTeam = await this.model2.findAll();
+    const result = LeaderService.sorted(findTeam.map((team) => {
+      const objHome = LeaderService.pointsGoalsHome(team.id, response);
+      const objAway = LeaderService.pointsGoalsAway(team.id, response);
+      return LeaderService.objTotal({
+        team,
+        objHome,
+        objAway,
+        totalVictories: objHome.totalVictories + objAway.totalVictories,
+        totalDraws: objHome.totalDraws + objAway.totalDraws,
+        totalGames: objHome.totalGames + objAway.totalGames,
+      });
+    }));
+    return result;
+  }
 }

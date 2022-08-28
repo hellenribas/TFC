@@ -13,9 +13,9 @@ export default class LeaderController {
     res.status(200).json(response);
   }
 
-  // public async totalPoint(req: Request, res: Response):Promise<void> {
-  //   const response = await this._leaderService.totalPoint();
+  public async totalPoint(req: Request, res: Response):Promise<void> {
+    const response = await this._leaderService.totalPoint();
 
-  //   res.status(200).json(response);
-  // }
+    res.status(200).json(response);
+  }
 }

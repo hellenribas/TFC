@@ -18,4 +18,9 @@ router.get(
   (req: Request, res: Response) => leaderController.leaderBoard(req, res),
 );
 
+router.get(
+  '/leaderboard/',
+  (req: Request, res: Response) => leaderController.totalPoint(req, res),
+);
+
 export default router;
