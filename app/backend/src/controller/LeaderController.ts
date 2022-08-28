@@ -7,9 +7,15 @@ export default class LeaderController {
     this._leaderService = leaderService;
   }
 
-  public async leaderBoard(_req: Request, res: Response): Promise<void> {
-    const response = await this._leaderService.leaderBoard();
+  public async leaderBoard(req: Request, res: Response): Promise<void> {
+    const response = await this._leaderService.leaderBoard(req.url);
 
     res.status(200).json(response);
   }
+
+  // public async totalPoint(req: Request, res: Response):Promise<void> {
+  //   const response = await this._leaderService.totalPoint();
+
+  //   res.status(200).json(response);
+  // }
 }

@@ -1,5 +1,5 @@
 import ILeader from './ILeader';
 
 export default interface Leader {
-  leaderBoard():Promise<ILeader[]>,
+  leaderBoard(url:string):Promise<ILeader[]>,
 }
