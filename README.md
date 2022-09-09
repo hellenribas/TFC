@@ -1,10 +1,27 @@
 # 🚧 README em construção 🚧
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Habilidades
+
+- API
+- SOLID
+- Node.js
+- Sequelize
+- SQL
+- Testes de Integração
+- Princípios do REST 
+- Docker
+
+ ## O que foi desenvolvido
+
+  O TFC é um site informativo sobre partidas e classificações de futebol, desenvolvi o back-end dockerizado utilizando modelagem de dados através do Sequelize.
+
+ ---
+O projeto foi proposto pela Trybe, onde faço curso de desenvolvimento web full stack.
+
+---
+## Instalando Dependências
+
+- npm install
+
+---
+
+
